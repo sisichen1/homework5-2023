@@ -1,4 +1,4 @@
-/*Step 1 - logo animation starts at a width of 25px and grow to 475px, it also start with an opacity of 0 and end with an opacity of 1. The animation should take 5 seconds and only happen when the page is loaded. */
+/*Step 1 - add logo animation which begins with a width of 25px and gradually expands to 475px, starts with opacity 0 to 1 for 5 seconds.*/
 @keyframes logoanimation{
     from{
         width:25px;
@@ -14,24 +14,24 @@
     animation: logoanimation 5s;
 }
 
-/*Step 2 - Apply Poppins font (using Google fonts) with serif as a backup. Use the image “concrete_seamless.png” as a background-image with a backup color of #f1f1f1. */
+/*Step 2 - Add body font, background image with a backup color.*/
 body{
     font-family: 'Poppins', serif;
     background-image: url("../images/concrete_seamless.png");
     background-color: #f1f1f1;
 }
-/*Step 3 - Edit the css for the header tag (all instances) to use flex*/
+/*Step 3 - Edit header list to vertical style*/
 header{
     display:flex;
     flex-direction: column;
     align-items: center;
 }
-/*Step 4 - Edit the css for the nav_links class to use flex */
+/*Step 4 - Edit nav links to display in vertical style */
 .nav_links{
     display:flex;
     flex-direction: column;
 }
-/*Step 5 - Style the links so that they have the same color even after they have been visited.*/
+/*Step 5 - Style the links so that they have the same blue color even after they have been visited.*/
 a:visited{
     color:blue;
 }
@@ -43,14 +43,14 @@ a:visited{
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
-/*Step 7 - Specify an initial “size” of 450px to the card class*/
+/*Step 7 - Specify an initial “size” of 450px to the card class and apply border style*/
 .card{
     flex-basis: 450px;
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 
 }
-/*Step 8 - Edit the css for the pricing class to match our example. You should use flex and the cards should be centered both horizontally and vertically.*/
+/*Step 8 - Edit the card to take up each row and the items in card to center both horizontally and vertically.*/
 .pricing{
     display:flex;
     flex-direction: row;
@@ -64,7 +64,7 @@ a:visited{
     margin: 10px;
     width: 300px;
 }
-/*Step 10 - Edit the css for the gallery class to use flex*/
+/*Step 10 - Edit gallery display style*/
 .gallery{
     display:flex;
     flex-direction: row;
@@ -73,7 +73,7 @@ a:visited{
 }
 
 @media screen and (min-width:900px){
-/*Step 11 - Edit the css for the header tag (all instances) and the nav_links class to match our example using flex-properties. The logo should be as far to the left as possible and the links as far to the right as possible.*/
+/*Step 11 - Edit the header which the logo space out to the left and the links to the*/
 header,
 .nav_links{
     display:flex;
@@ -88,8 +88,8 @@ header,
 .pricing{
     align-items: center;
 }
-/*Step 13 - Modify the first header (the one not inside main) so that it remains visible at the top of the screen even as we scroll down. */
-body > header{
+/*Step 13 - Edit the header to always stay at the top when scrolling */
+body > header:first-of-type{
     position:sticky;
     top:0;
     width:100%;
@@ -97,7 +97,7 @@ body > header{
 }
 
 }
-/*Step 14 - Logo does not perform animation when users prefer reduced motion*/
+/*Step 14 - Logo would not perform animation when users choose to prefer reduced motion*/
 @media screen and (prefers-reduced-motion:reduce){
     #logo{
         animation:none;
@@ -109,7 +109,7 @@ body > header{
 body{
     font-family: Arial, Helvetica;
 }
-/*Step 16 - The background image should be removed. */
+/*Step 16 - Remove the background image */
 body{
     background-image:none;
 }
@@ -126,17 +126,17 @@ nav{
     flex-wrap: nowrap; /*use nowrap here that the elements would stay on the same line in the pricing class*/
     align-items: flex-end;
 }
-/*Step 19 - The card elements should have a solid border 2px of #45ADDD and use flex-basis of 325px. */
+/*Step 19 - Edit card styling */
 .card{
     border: 2px solid #45ADDD;
     flex-basis: 325px;
 }
-/*Step 20 - No part of the gallery would be visible when in print mode.*/
+/*Step 20 - Hide gallery when in print mode.*/
 #gallery,
 .gallery{
     display:none;
 }
-/*Step 21 - Add the thumbs up entity as shown in the cards. the code here is calling to add a thumbs up after the second child in the ul li tag.*/
+/*Step 21 - Add the thumbs up entity as shown in the cards. The code here is calling to add a thumbs up after the second child in the ul li tag.*/
 .card ul li:nth-child(2)::after{
     content:"\1F44D"; /*represents thumbs up character*/
 }
