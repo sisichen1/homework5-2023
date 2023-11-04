@@ -1,0 +1,145 @@
+/*Step 1 - logo animation starts at a width of 25px and grow to 475px, it also start with an opacity of 0 and end with an opacity of 1. The animation should take 5 seconds and only happen when the page is loaded. */
+@keyframes logoanimation{
+    from{
+        width:25px;
+        opacity:0;
+    }
+    to{
+        width: 475px;
+        opacity:1;
+    }
+}
+
+#logo{
+    animation: logoanimation 5s;
+}
+
+/*Step 2 - Apply Poppins font (using Google fonts) with serif as a backup. Use the image “concrete_seamless.png” as a background-image with a backup color of #f1f1f1. */
+body{
+    font-family: 'Poppins', serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+/*Step 3 - Edit the css for the header tag (all instances) to use flex*/
+header{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*Step 4 - Edit the css for the nav_links class to use flex */
+.nav_links{
+    display:flex;
+    flex-direction: column;
+}
+/*Step 5 - Style the links so that they have the same color even after they have been visited.*/
+a:visited{
+    color:blue;
+}
+/*Step 6 - Style the header using parent-child selector as the header is the child of the card class*/
+.card > header{
+    background: #288088;
+    border: 2px solid #45ADAD;
+    padding: 20px 0 20px 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+/*Step 7 - Specify an initial “size” of 450px to the card class*/
+.card{
+    flex-basis: 450px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+
+}
+/*Step 8 - Edit the css for the pricing class to match our example. You should use flex and the cards should be centered both horizontally and vertically.*/
+.pricing{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap; /*allowing the flex item to wrap onto the next line when there's not enough space*/
+    align-items: center;
+    justify-content: center;
+}
+/*Step 9 - Styling the images in the gallery class.*/
+.gallery img{
+    border: 10px solid #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+/*Step 10 - Edit the css for the gallery class to use flex*/
+.gallery{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap; /*flex-items can be wrapped onto the next line when there is no enough space*/
+    justify-content: center;
+}
+
+@media screen and (min-width:900px){
+/*Step 11 - Edit the css for the header tag (all instances) and the nav_links class to match our example using flex-properties. The logo should be as far to the left as possible and the links as far to the right as possible.*/
+header,
+.nav_links{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between; /*space-between helps to distribute the logo in the header and nav links evenly and have the logo at the beginning and nav links to the end.*/
+}
+
+/*Step 12 - Using a flex-property to specify a “size” of 275px. */
+.card{
+    flex-basis: 275px;
+}
+.pricing{
+    align-items: center;
+}
+/*Step 13 - Modify the first header (the one not inside main) so that it remains visible at the top of the screen even as we scroll down. */
+body > header{
+    position:sticky;
+    top:0;
+    width:100%;
+    z-index:100; /*setting z index value to let the header appear in front of other elements.*/
+}
+
+}
+/*Step 14 - Logo does not perform animation when users prefer reduced motion*/
+@media screen and (prefers-reduced-motion:reduce){
+    #logo{
+        animation:none;
+    }
+}
+
+@media print{
+/*Step 15 - Change the font on your body to Arial with a backup value of  Helvetica*/
+body{
+    font-family: Arial, Helvetica;
+}
+/*Step 16 - The background image should be removed. */
+body{
+    background-image:none;
+}
+/*Step 17 - Edit the nav/nav_links elements so that they are spaced according to the image above.*/
+nav{
+    width:100%;
+}
+.nav_links{
+    flex-direction: row;
+    justify-content: space-around;
+}
+/*Step 18 - Edit the pricing class so that the elements align along the bottom. */
+.pricing{
+    flex-wrap: nowrap; /*use nowrap here that the elements would stay on the same line in the pricing class*/
+    align-items: flex-end;
+}
+/*Step 19 - The card elements should have a solid border 2px of #45ADDD and use flex-basis of 325px. */
+.card{
+    border: 2px solid #45ADDD;
+    flex-basis: 325px;
+}
+/*Step 20 - No part of the gallery would be visible when in print mode.*/
+#gallery,
+.gallery{
+    display:none;
+}
+/*Step 21 - Add the thumbs up entity as shown in the cards. the code here is calling to add a thumbs up after the second child in the ul li tag.*/
+.card ul li:nth-child(2)::after{
+    content:"\1F44D"; /*represents thumbs up character*/
+}
+
+
+}
